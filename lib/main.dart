@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_handson_call_web_api/input_form.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,17 +38,11 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Intl.defaultLocale = Localizations.localeOf(context).toString();
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const TextField(),
-            Text(DateFormat.yMd().format(DateTime.now())),
-          ],
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: const Text('hiragana converter'),
         ),
-      ),
-    );
+        body: const InputForm());
   }
 }
