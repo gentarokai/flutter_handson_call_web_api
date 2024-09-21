@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_handson_call_web_api/app_notifier_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class InputForm extends StatefulWidget {
+class InputForm extends ConsumerStatefulWidget {
   const InputForm({super.key});
 
   @override
-  State<InputForm> createState() => _InputFormState();
+  ConsumerState<InputForm> createState() => _InputFormState();
 }
 
-class _InputFormState extends State<InputForm> {
+class _InputFormState extends ConsumerState<InputForm> {
   final _formKey = GlobalKey<FormState>();
   final _textEditingController = TextEditingController(); // 入力文字を保持する
 
@@ -35,11 +37,14 @@ class _InputFormState extends State<InputForm> {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               // GlobalKey経由でFormウィジットのStateを取得してバリデーションを行う
               final formState = _formKey.currentState!;
-              formState.validate();
-              debugPrint(_textEditingController.text);
+              if (!formState.validate()) {
+                return;
+              }
+              final sentence = _textEditingController.text;
+              await ref.read(appNotifierProvider.notifier).convert(sentence);
             },
             child: const Text('変換'),
           ),
