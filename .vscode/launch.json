@@ -14,13 +14,15 @@
       "name": "flutter_handson_call_web_api (profile mode)",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile"
+      "flutterMode": "profile",
+      "args": ["--dart-define-from-file=define/env.json"]
     },
     {
       "name": "flutter_handson_call_web_api (release mode)",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "release"
+      "flutterMode": "release",
+      "args": ["--dart-define-from-file=define/env.json"]
     }
   ]
 }
