@@ -22,7 +22,7 @@ class ConvertResult extends ConsumerWidget {
           ),
           ElevatedButton(
             onPressed: notifier.reset,
-            child: const Text('際入力'),
+            child: const Text('再入力'),
           ),
         ],
       ),

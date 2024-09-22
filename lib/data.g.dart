@@ -19,7 +19,7 @@ Map<String, dynamic> _$RequestToJson(Request instance) => <String, dynamic>{
     };
 
 Response _$ResponseFromJson(Map<String, dynamic> json) => Response(
-      converted: json['converted'] as String,
+      converted: json['converted'] ?? "",
     );
 
 Map<String, dynamic> _$ResponseToJson(Response instance) => <String, dynamic>{

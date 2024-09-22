@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -19,11 +20,13 @@ class AppNotifier extends _$AppNotifier {
     state = const Input();
   }
 
+  // APIとやりとりして、状態にセットするのはProviderの中に記載する
   Future<void> convert(String sentence) async {
     state = const Loading();
 
     final url = Uri.parse('https://labs.goo.ne.jp/api/hiragana');
     final headers = {'Content-Type': 'application/json'};
+    debugPrint(const String.fromEnvironment("appId"));
     final request = Request(
       appId: const String.fromEnvironment('appId'),
       sentence: sentence,
