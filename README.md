@@ -8,5 +8,5 @@ Flutter ハンズオン　「ひらがな変換アプリ」
 
 ・文字入力
 ・バリデーション
-・JSON の取り扱い
+・JSON の取り扱い　 → json_serializable
 ・非同期処理
